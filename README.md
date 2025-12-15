@@ -30,7 +30,7 @@ Before installing Pangolin, ensure you've set up DNS for your domain(s) and open
   <Step title="Загрузить программу установки">
     Подключитесь к своему серверу по SSH и загрузите программу установки:
 
-    ```bash  theme={null}
+    ```
     curl -fsSL https://raw.githubusercontent.com/AlexZa26/pangolin/refs/heads/main/get-installer.sh | bash
     ```
 
@@ -40,7 +40,7 @@ Before installing Pangolin, ensure you've set up DNS for your domain(s) and open
   <Step title="Запустить программу установки">
     Запустите программу установки с правами суперпользователя:
 
-    ```bash  theme={null}
+    ```
     sudo ./installer
     ```
 
