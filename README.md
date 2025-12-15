@@ -1,95 +1,94 @@
-# Quick Install Guide
+# Краткое руководство по установке
 
-> Deploy your own fully self-hosted instance of Pangolin Community Edition
+> Разверните свой собственный полностью автономный экземпляр Pangolin Community Edition
 
-<iframe className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/0upWrqkJPy8?si=q0D-uR1IHuddaqeT" title="Pangolin Quick Install Guide" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
 ## Prerequisites
 
-Before you begin, ensure you have:
+## Предварительные требования
 
-* **Linux server** with root access and public IP address
-* **Domain name** pointing to your server's IP address for the dashboard
-* **Email address** for Let's Encrypt SSL certificates and admin log in
-* **Open ports on firewall** for 80 (TCP), 443 (TCP), 51820 (UDP), and 21820 (UDP for clients)
+Перед началом работы убедитесь, что у вас есть:
 
-<Tip>
-  **Recommended**: Ubuntu 20.04+ or Debian 11+ for best compatibility and performance.
-</Tip>
+*****Linux-сервер с правами root и общедоступным IP-адресом
 
-## Choose Your Server
+***Доменное имя**, указывающее на IP-адрес вашего сервера для панели мониторинга
 
-Need help choosing? See our [complete VPS guide](/self-host/choosing-a-vps) for suggestions.
+***Адрес электронной почты** для получения сертификатов Let's Encrypt SSL и входа в систему администратора
 
-## DNS & Networking
+***Откройте порты на брандмауэре** для 80 (TCP), 443 (TCP), 51820 (UDP) и 21820 (UDP для клиентов)
+
+
+
+
+## DNS и сеть
 
 Before installing Pangolin, ensure you've set up DNS for your domain(s) and opened the required port on your firewall. See our guide on [DNS & networking](/self-host/dns-and-networking) for more information.
 
-## Installation Process
+## Процесс установки
 
 <Steps>
-  <Step title="Download the installer">
-    Connect to your server via SSH and download the installer:
+  <Step title="Загрузить программу установки">
+    Подключитесь к своему серверу по SSH и загрузите программу установки:
 
     ```bash  theme={null}
-    curl -fsSL https://static.pangolin.net/get-installer.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/AlexZa26/pangolin/refs/heads/main/get-installer.sh | bash
     ```
 
-    The installer supports both AMD64 (x86\_64) and ARM64 architectures.
+    Программа установки поддерживает архитектуры AMD64 (x86\\_64) и ARM64.
   </Step>
 
-  <Step title="Run the installer">
-    Execute the installer with root privileges:
+  <Step title="Запустить программу установки">
+    Запустите программу установки с правами суперпользователя:
 
     ```bash  theme={null}
     sudo ./installer
     ```
 
-    The installer places all files in the current directory. Move the installer to your desired installation directory before running it.
+    Установщик помещает все файлы в текущий каталог. Перед запуском программы установки переместите ее в нужный каталог.
   </Step>
 
-  <Step title="Configure basic settings">
-    The installer will prompt you for essential configuration:
+  <Step title="Настройка основных параметров">
+    Программа установки предложит вам выполнить необходимые настройки.:
 
-    * **Base Domain**: Enter your root domain without subdomains (e.g., `example.com`)
-    * **Dashboard Domain**: Press Enter to accept the default `pangolin.example.com` or enter a custom domain
-    * **Let's Encrypt Email**: Provide an email for SSL certificates and admin login
-    * **Tunneling**: Choose whether to install Gerbil for tunneled connections (default: yes). You can run Pangolin without tunneling. It will function as a standard reverse proxy.
+    * **оОсновной домен**: Введите свой корневой домен без поддоменов (например, `example.com`)
+    * **Домен панели мониторинга**: Нажмите Enter, чтобы принять значение по умолчанию `pangolin.example.com` или введите пользовательский домен
+    * **Let's Encrypt Email**: Укажите адрес электронной почты для получения SSL-сертификатов и входа в систему администратора
+    * **Туннелирование**: \*\*: Выберите, следует ли устанавливать Gerbil для туннелируемых подключений (по умолчанию: да). Вы можете запустить Pangolin без туннелирования. Он будет функционировать как стандартный обратный прокси-сервер.
   </Step>
 
-  <Step title="Configure email (optional)">
+  <Step title="Настройка электронной почты (необязательно)">
     <Tip>
-      Email functionality is optional and can be added later.
+      Функция электронной почты необязательна и может быть добавлена позже.
     </Tip>
 
-    Choose whether to enable SMTP email functionality:
+    Выберите, следует ли включать функцию электронной почты SMTP:
 
-    * **Default**: No (recommended for initial setup)
-    * **If enabled**: You'll need SMTP server details (host, port, username, password)
+    * **По умолчанию**: \*\*: Нет (рекомендуется для начальной настройки)
+    * **Если включено**: Вам понадобятся данные SMTP-сервера (хост, порт, имя пользователя, пароль)
   </Step>
 
-  <Step title="Start installation">
-    Confirm that you want to install and start the containers:
+  <Step title="Начать установку">
+    Подтвердите, что вы хотите установить и запустить контейнеры:
 
-    * The installer will pull Docker images (pangolin, gerbil, traefik)
-    * Containers will be started automatically
-    * This process takes 2-3 minutes depending on your internet connection
+    * Программа установки загрузит образы Docker (pangolin, gerbil, traefik)
+    * Контейнеры будут запущены автоматически
+    * Этот процесс занимает 2-3 минуты в зависимости от вашего интернет-соединения
 
-    You'll see progress indicators as each container is pulled and started.
+    Вы увидите индикаторы выполнения при загрузке каждого контейнера.
   </Step>
 
-  <Step title="Install CrowdSec (optional)">
-    The installer will ask if you want to install CrowdSec for additional security:
+  <Step title="Установка CrowdSec (необязательно)">
+    Программа установки спросит, хотите ли вы установить CrowdSec для обеспечения дополнительной безопасности:
 
-    * **Default**: No (recommended for initial setup)
-    * **If enabled**: You'll need to confirm you're willing to manage CrowdSec configuration
+    * **По умолчанию**: Нет (рекомендуется для начальной установки)
+    * ***Если включено**: Вам нужно подтвердить, что вы согласны управлять конфигурацией CrowdSec
 
     <Warning>
-      CrowdSec adds complexity and requires manual configuration for optimal security. Only enable if you're comfortable managing it.
+      CrowdSec усложняет работу и требует ручной настройки для обеспечения оптимальной безопасности. Включайте только в том случае, если вам удобно управлять ею.
     </Warning>
 
     <Info>
-      CrowdSec can be installed later if needed. The basic installation provides sufficient security for most use cases.
+      При необходимости CrowdSec можно установить позже. Базовая установка обеспечивает достаточную безопасность для большинства случаев использования.
     </Info>
   </Step>
 </Steps>
