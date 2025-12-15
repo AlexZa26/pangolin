@@ -30,9 +30,8 @@ Before installing Pangolin, ensure you've set up DNS for your domain(s) and open
   <Step title="Загрузить программу установки">
     Подключитесь к своему серверу по SSH и загрузите программу установки:
 
-    ```
     curl -fsSL https://raw.githubusercontent.com/AlexZa26/pangolin/refs/heads/main/get-installer.sh | bash
-    ```
+   
 
     Программа установки поддерживает архитектуры AMD64 (x86\\_64) и ARM64.
   </Step>
@@ -40,10 +39,8 @@ Before installing Pangolin, ensure you've set up DNS for your domain(s) and open
   <Step title="Запустить программу установки">
     Запустите программу установки с правами суперпользователя:
 
-    ```
     sudo ./installer
-    ```
-
+    
     Установщик помещает все файлы в текущий каталог. Перед запуском программы установки переместите ее в нужный каталог.
   </Step>
 
